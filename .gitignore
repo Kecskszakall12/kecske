@@ -1,0 +1,5 @@
+SELECT nev,osztaly,idopont,mennyiseg FROM tanulok INNER JOIN leadasok ON leadasok.tanulo = tanulok.tazon WHERE osztaly LIKE '1%';
+SELECT idopont, avg(mennyiseg) AS 'napi atlag' FROM leadasok GROUP BY idopont;
+SELECT DISTINCT osztaly FROM tanulok INNER JOIN leadasok ON tanulok.tazon=leadasok.tanulo WHERE idopont='2016.10.28' ORDER BY osztaly;
+SELECT osztaly, sum(mennyiseg)/10000 AS mazsa FROm tanulok INNER JOIN leadasok ON tanulok.tazon=leadasok.tanulo GROUP BY osztaly ORDER BY mazsa DESC;
+SELECT nev, osztaly, sum(mennyiseg) AS osszesen FROM tanulok INNER JOIN leadasok ON tanulok.tazon=leadasok.tanulo GROUP BY nev, osztaly ORDER BY osszesen DESC LIMIT 10;
